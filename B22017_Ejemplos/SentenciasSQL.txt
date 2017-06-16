@@ -1,7 +1,0 @@
-INSERT INTO tbm_ciudades VALUES (6, 'Quevedo', 'A')
-INSERT INTO tbm_ciudades(co_ciu, tx_nom, st_reg) VALUES (7, 'Daule', 'A')
-INSERT INTO tbm_ciudades(st_reg, co_ciu, tx_nom) VALUES ('A', 8, 'Jipijapa')
-
-SELECT * FROM tbm_ciudades
-SELECT tx_nom FROM tbm_ciudades ORDER BY tx_nom
-SELECT tx_nom FROM tbm_ciudades ORDER BY tx_nom DESC
