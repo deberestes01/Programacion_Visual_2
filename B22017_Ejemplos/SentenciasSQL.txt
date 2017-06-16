@@ -1,0 +1,53 @@
+INSERT INTO tbm_ciudades VALUES (6, 'Quevedo', 'A')
+INSERT INTO tbm_ciudades(co_ciu, tx_nom, st_reg) VALUES (7, 'Daule', 'A')
+INSERT INTO tbm_ciudades(st_reg, co_ciu, tx_nom) VALUES ('A', 8, 'Jipijapa')
+
+SELECT * FROM tbm_ciudades
+SELECT tx_nom FROM tbm_ciudades ORDER BY tx_nom
+SELECT tx_nom FROM tbm_ciudades ORDER BY tx_nom DESC
+
+INSERT INTO tbm_estudiantes (co_est, tx_nom, tx_ape, fe_nac, ne_eda, co_ciu)
+VALUES (5, 'Patricia', 'Vaca', '05/09/2000', 17, 3)
+
+INSERT INTO tbm_estudiantes (co_est, tx_nom, tx_ape, fe_nac, ne_eda, co_ciu)
+VALUES (6, 'Eddye', 'Lino', '05/09/1990', 27, 5)
+
+INSERT INTO tbm_estudiantes (co_est, tx_nom, tx_ape, fe_nac, ne_eda, co_ciu)
+VALUES (7, 'Sara', 'Robles', '24/02/1980', 37, 8)
+
+SELECT co_est, tx_nom, tx_ape, co_ciu
+FROM tbm_estudiantes
+
+
+SELECT co_est, tbm_estudiantes.tx_nom, tx_ape, tbm_ciudades.tx_nom
+FROM tbm_estudiantes
+, tbm_ciudades
+WHERE tbm_estudiantes.co_ciu=tbm_ciudades.co_ciu
+ORDER BY co_est
+
+
+SELECT tbm_estudiantes.co_est, tbm_estudiantes.tx_nom, tbm_estudiantes.tx_ape, tbm_ciudades.tx_nom
+FROM tbm_estudiantes
+, tbm_ciudades
+WHERE tbm_estudiantes.co_ciu=tbm_ciudades.co_ciu
+ORDER BY co_est
+
+
+SELECT a1.co_est, a1.tx_nom AS nomEst, a1.tx_ape, a2.tx_nom AS nomCiu
+FROM tbm_estudiantes AS a1
+, tbm_ciudades AS a2
+WHERE a1.co_ciu=a2.co_ciu
+ORDER BY a1.co_est
+
+
+SELECT a1.co_est, a1.tx_nom AS nomEst, a1.tx_ape, a2.tx_nom AS nomCiu
+FROM tbm_estudiantes AS a1
+INNER JOIN tbm_ciudades AS a2 ON (a1.co_ciu=a2.co_ciu)
+ORDER BY a1.co_est
+
+
+SELECT a1.co_est, a1.tx_nom AS nomEst, a1.tx_ape, a2.tx_nom AS nomCiu
+FROM tbm_estudiantes AS a1
+INNER JOIN tbm_ciudades AS a2 ON (a1.co_ciu=a2.co_ciu)
+WHERE a1.co_ciu=1
+ORDER BY a1.co_est
